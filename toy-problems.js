@@ -7,7 +7,10 @@ Write a function that takes an array of integers and returns the sum of the inte
 plusOneSum([1, 2, 3, 4]); // 14
 
 */
-
+function plusOneSum(arr) {
+  arr = arr.map(function(num){return num+1});
+  return arr.reduce((prev, cur) => prev + cur);
+}
 
 
 /*
@@ -17,7 +20,9 @@ Write a function that accepts a multi dimensional array and returns a flattened 
 flatten([1, 2, [3, [4], 5, 6], 7]) // [1, 2, 3, 4, 5, 6, 7]
 
 */
-
+function flatten(arr) {
+  return arr.concat.apply([], arrays);
+}
 
 
 /*
@@ -25,6 +30,9 @@ flatten([1, 2, [3, [4], 5, 6], 7]) // [1, 2, 3, 4, 5, 6, 7]
 Given an array [a1, a2, ..., aN, b1, b2, ..., bN, c1, c2, ..., cN] convert it to [a1, b1, c1, a2, b2, c2, ..., aN, bN, cN]
 
 */
+function sortArr(arr) {
+  arr.sort();
+}
 
 
 /*

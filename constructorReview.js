@@ -53,7 +53,7 @@ Animal.prototype.eat = function(){
 //At this point, if we wanted to add something to every istance of person could we?
 
   //Yes or no? and why or why not?
-//NO because there is no person Object.
+//No, because there is no person Object.
 
 
 /*
