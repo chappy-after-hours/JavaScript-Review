@@ -20,9 +20,50 @@ Write a function that accepts a multi dimensional array and returns a flattened 
 flatten([1, 2, [3, [4], 5, 6], 7]) // [1, 2, 3, 4, 5, 6, 7]
 
 */
+
+
 function flatten(arr) {
-  return arr.concat.apply([], arrays);
+  var newArr = [];
+  for (var i = 0; i < arr.length; i++) {
+    if (!Array.isArray(arr[i])) {
+      console.log(arr[i])
+      newArr.push(arr[i]);
+    } else {
+      for (var j = 0; j < arr[i].length; j++) {
+        if (!Array.isArray(arr[i][j])){
+          console.log(arr[i][j])
+          newArr.push(arr[i][j]);
+        }
+        else {
+          for (var k = 0; k < arr[i][j].length; k++) {
+            console.log(arr[i][j][k])
+            newArr.push(arr[i][j][k]);
+          }
+        }
+      }
+    }
+  }
+  return newArr;
 }
+
+/* found online - Recursion.
+
+function flatten(items) {
+  const flat = [];
+
+  items.forEach(item => {
+    if (Array.isArray(item)) {
+      flat.push(...flatten(item));
+    } else {
+      flat.push(item);
+    }
+  });
+
+  return flat;
+}
+undefined
+flatten([1,2,[3,4,[5,6,[7,8,[9,11,[123]]]]]])
+*/
 
 
 /*
@@ -31,7 +72,25 @@ Given an array [a1, a2, ..., aN, b1, b2, ..., bN, c1, c2, ..., cN] convert it to
 
 */
 function sortArr(arr) {
-  arr.sort();
+  var sortedArr = [];
+  for (var i = 0; i < arr.length; i++) {
+    if (sortedArr.length = 0) {
+      sortedArr.push(arr[i]);
+    }else {
+      var1 = arr[i][0];
+      var2 = arr[i].slice(i);
+      for (var j = 0; j < sortedArr.length;j++) {
+        var a = sortedArr[j][0];
+        var b = sortedArr.slice(j);
+        var c = sortedArr[j+1][0];
+        var d = sortedArr[j+1].slice(j);
+
+      }
+    }
+  }
+  loop through given array
+    loop through answer array
+
 }
 
 
@@ -40,7 +99,33 @@ function sortArr(arr) {
 There is an array of non-negative integers. A second array is formed by shuffling the elements of the first array and deleting a random element. Given these two arrays, find which element is missing in the second array.
 
 */
-
+function findMissing(arr1,arr2) {
+  var countObj1 = {};
+  var countObj2 = {};
+  for (var i = 0; i < arr1.length; i++) {
+    if (!countObj1[arr1[i]]) {
+      countObj1[arr1[i]] = 1;
+    } else {
+      countObj1[arr1[i]]++;
+    }
+  }
+  for (var j = 0; j < arr2.length; j++) {
+    if (!countObj2[arr2[j]]) {
+      countObj2[arr2[j]] = 1;
+    } else {
+      countObj2[arr2[j]]++;
+    }
+  }
+  for(prop in countObj1) {
+    if (countObj2[prop] && countObj2[prop] !== countObj1[prop]) {
+      return prop;
+    } else {
+      if (!countObj2[prop]) {
+        return prop;
+      }
+    }
+  }
+}
 
 
 
